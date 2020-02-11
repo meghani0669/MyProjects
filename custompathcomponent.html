@@ -1,0 +1,13 @@
+<template>
+    <lightning-progress-indicator current-step={currentstep} type="path" variant="base">
+        <template for:each={options} for:item="step">
+            <lightning-progress-step label={step.label} value={step.value} key={step.label} onstepfocus={handleclick}></lightning-progress-step>
+        </template>
+        <template if:true={showcurrentstage}>
+            <lightning-button variant="brand" label="Mark As Current Stage" title="Mark Current Stage" onclick={handlecurrentupdate} class="slds-m-left_x-small"></lightning-button>
+        </template>
+        <template if:true={showcompletestage}>
+            <lightning-button variant="brand" label="Mark Stage As Complete" title="Mark As Complete"  onclick={handlecomplete} class="slds-m-left_x-small"></lightning-button>
+        </template>
+    </lightning-progress-indicator>
+</template>
